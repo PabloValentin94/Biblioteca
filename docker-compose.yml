@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: Biblioteca_Docker_PHP_MySQL_Server
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_biblioteca_docker_php
+    ports:
+      - "3307:3306"
