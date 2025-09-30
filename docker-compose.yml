@@ -13,8 +13,18 @@ services:
   mysql:
     container_name: Biblioteca_Docker_PHP_MySQL_Server
     image: mysql:8.0
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+
       MYSQL_DATABASE: db_biblioteca_docker_php
+
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     ports:
       - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data: 
