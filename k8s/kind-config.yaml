@@ -1,0 +1,16 @@
+# Configuração personalizada do cluster do Kind.
+kind: Cluster
+apiVersion: kind.-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+
+      # Porta do container do Docker no Kind.
+      - containerPort: 30080
+        hostPort: 30080
+        protocol: TCP
+
+      # Porta externa para MySQL.
+      - containerPort: 30306
+        hostPort: 3306
+        protocol: TCP
