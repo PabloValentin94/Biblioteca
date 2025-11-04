@@ -9,20 +9,20 @@ spec:
   selector:
     matchLabels:
       app: php
-    template:
-      metadata:
-        labels:
-          app: php
-      spec:
-        containers:
-          - name: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+        - name: php
 
-            # Imagem customizada.
-            image: 'pablovalentin94/biblioteca-docker-php'
+          # Imagem customizada.
+          image: 'pablovalentin94/biblioteca-docker-php:latest'
 
-            # Apache ou PHP embutido.
-            ports:
-              containerPort: 80
+          # Apache ou PHP embutido.
+          ports:
+            containerPort: 80
 ---
 
 apiVersion: v1
